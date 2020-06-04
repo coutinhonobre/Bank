@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <color name="topRecentes">#FFA8B4C4</color>
+        <color name="rodapeRecentes">#FF485465</color>
     </style>
 
 </resources>
