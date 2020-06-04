@@ -42,15 +42,14 @@ class User {
 
 
     private fun validarUsuario(): Boolean {
-        var valido = false
-        EMAIL_ADDRESS_PATTERN.matcher(this.user)
+        var valido = EMAIL_ADDRESS_PATTERN.matcher(this.user)
             .matches() || ((this.user.length == 11 || this.user.length == 14) && !this.user.contains(
             "^[a-Z]"
         ))
 
         if (!valido) this.error = "Usuario Invalido"
 
-        return true
+        return valido
 
     }
 }
