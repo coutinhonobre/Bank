@@ -31,13 +31,12 @@ class User {
     }
 
     private fun validacaoPassword(): Boolean{
-        var valido = false
-        password.contains(Regex("[A-Z]")) &&
+        var valido = password.contains(Regex("[A-Z]")) &&
                 password.contains(Regex("[0-9]")) &&
                 password.contains(Regex("[^a-zA-Z0-9 ]"))
 
         if (!valido) this.error = "Senha Invalida"
-
+        println(this.error)
         return valido
     }
 
@@ -51,7 +50,7 @@ class User {
 
         if (!valido) this.error = "Usuario Invalido"
 
-        return valido
+        return true
 
     }
 }
