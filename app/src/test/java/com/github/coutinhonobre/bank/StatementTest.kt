@@ -1,5 +1,6 @@
 package com.github.coutinhonobre.bank
 
+import com.github.coutinhonobre.bank.data.model.Statement
 import org.junit.Before
 
 class StatementTest {
