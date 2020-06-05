@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:layout_marginTop="10dp"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +16,8 @@
 
         <TextView
             android:id="@+id/textViewRecentesTitle"
-            android:layout_width="120dp"
-            android:layout_height="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@color/topRecentes"
             android:textSize="16sp"
             android:text="@string/pagamento"
@@ -24,8 +26,8 @@
 
         <TextView
             android:id="@+id/textViewRecentesDate"
-            android:layout_width="117dp"
-            android:layout_height="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@color/topRecentes"
             android:textAlignment="textEnd"
             android:textSize="12sp"
@@ -36,8 +38,8 @@
 
         <TextView
             android:id="@+id/textViewRecentesDesc"
-            android:layout_width="120dp"
-            android:layout_height="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@color/rodapeRecentes"
             android:textSize="16sp"
             android:text="@string/descExemple"
@@ -46,8 +48,8 @@
 
         <TextView
             android:id="@+id/textViewRecentesValue"
-            android:layout_width="184dp"
-            android:layout_height="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@color/rodapeRecentes"
             android:textSize="20sp"
             android:textAlignment="textEnd"

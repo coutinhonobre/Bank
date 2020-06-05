@@ -13,4 +13,5 @@
     <string name="numeroContaExemplo">2050 / 01.111222-4</string>
     <string name="saldo">Saldo</string>
     <string name="saldoExemple">R$1.000,00</string>
+    <string name="recentes">Recentes</string>
 </resources>

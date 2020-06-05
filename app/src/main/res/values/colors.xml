@@ -7,4 +7,5 @@
     <color name="topRecentes">#FFA8B4C4</color>
     <color name="rodapeRecentes">#FF485465</color>
     <color name="cabecalhoField">#FFFFFF</color>
+    <color name="cabecalhoFieldLista">#FF485465</color>
 </resources>
