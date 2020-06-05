@@ -7,4 +7,10 @@
     <string name="login">Login</string>
     <string name="user">User</string>
     <string name="password">Password</string>
+    <string name="nomePadraoCliente">Jose da Silva Teste</string>
+    <string name="logout">Sair</string>
+    <string name="conta">Conta</string>
+    <string name="numeroContaExemplo">2050 / 01.111222-4</string>
+    <string name="saldo">Saldo</string>
+    <string name="saldoExemple">R$1.000,00</string>
 </resources>

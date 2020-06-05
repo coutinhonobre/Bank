@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.extrato.ExtratoActivity">
 
+    <include layout="@layout/cabecalho_extrato" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

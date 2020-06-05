@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/textViewCabecalhoExtratoNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/nomePadraoCliente"
+        android:textColor="@color/cabecalhoField"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageViewCabecalhoExtratoLogout"
+        android:layout_marginTop="6dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:contentDescription="@string/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/logout"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/textViewCabecalhoExtratoContaDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/conta"
+        android:textColor="@color/cabecalhoField"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCabecalhoExtratoNome" />
+
+    <TextView
+        android:id="@+id/textViewCabecalhoExtratoContaNumero"
+        android:layout_width="300dp"
+        android:layout_height="29dp"
+        android:text="@string/numeroContaExemplo"
+        android:textColor="@color/cabecalhoField"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCabecalhoExtratoContaDescricao" />
+
+    <TextView
+        android:id="@+id/textViewCabecalhoExtratoSaldoDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/saldo"
+        android:textColor="@color/cabecalhoField"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCabecalhoExtratoContaNumero" />
+
+    <TextView
+        android:id="@+id/textViewCabecalhoExtratoSaldo"
+        android:layout_width="184dp"
+        android:layout_height="29dp"
+        android:text="@string/saldoExemple"
+        android:textColor="@color/cabecalhoField"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCabecalhoExtratoSaldoDesc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,5 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="topRecentes">#FFA8B4C4</color>
     <color name="rodapeRecentes">#FF485465</color>
+    <color name="cabecalhoField">#FFFFFF</color>
 </resources>
