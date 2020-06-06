@@ -9,6 +9,7 @@ import com.github.coutinhonobre.bank.apinetwork.login.LoginUserAccount
 import com.github.coutinhonobre.bank.apinetwork.login.Mensagem
 import com.github.coutinhonobre.bank.apinetwork.login.TipoMensagem
 import com.github.coutinhonobre.bank.apinetwork.login.User
+import com.github.coutinhonobre.bank.data.model.UserAccount
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +20,7 @@ import retrofit2.Response
 class AppRepository(val context: Context) {
 
     var mensagem = MutableLiveData<Mensagem>(Mensagem(tipo = TipoMensagem.NOT, descricao = ""))
+
     var getUserAccount = ApiRetrofit.RETROFIT_SERVICE
 
 
@@ -40,6 +42,8 @@ class AppRepository(val context: Context) {
                     mensagem.apply {
                         value = Mensagem(TipoMensagem.SUCCESS, "${response.code()} - ${response.body()}")
                     }
+                    var userAccount = response.body()!!.userAccount
+
                 }else{
                     mensagem.value.apply {
                         Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
