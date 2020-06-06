@@ -2,6 +2,8 @@ package com.github.coutinhonobre.bank.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import com.github.coutinhonobre.bank.apinetwork.ApiRetrofit
 import com.github.coutinhonobre.bank.apinetwork.login.LoginUserAccount
 import com.github.coutinhonobre.bank.apinetwork.login.Mensagem
@@ -16,7 +18,7 @@ import retrofit2.Response
 
 class AppRepository(val context: Context) {
 
-    lateinit var mensagem: LiveData<Mensagem>
+    var mensagem = MutableLiveData<Mensagem>(Mensagem(tipo = TipoMensagem.NOT, descricao = ""))
     var getUserAccount = ApiRetrofit.RETROFIT_SERVICE
 
 
@@ -35,7 +37,9 @@ class AppRepository(val context: Context) {
             ) {
 
                 if (response.isSuccessful){
-                    Mensagem(TipoMensagem.SUCCESS, "${response.code()} - ${response.body()}")
+                    mensagem.apply {
+                        value = Mensagem(TipoMensagem.SUCCESS, "${response.code()} - ${response.body()}")
+                    }
                 }else{
                     mensagem.value.apply {
                         Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
