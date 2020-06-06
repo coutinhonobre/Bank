@@ -25,7 +25,7 @@ class User {
                 validacaoPassword()
             } else false
         }
-
+        this.error = "User ou Senha vazios!"
         return false
 
     }
@@ -36,7 +36,6 @@ class User {
                 password.contains(Regex("[^a-zA-Z0-9 ]"))
 
         if (!valido) this.error = "Senha Invalida"
-        println(this.error)
         return valido
     }
 
