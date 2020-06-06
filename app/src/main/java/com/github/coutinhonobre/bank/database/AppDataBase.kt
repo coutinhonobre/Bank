@@ -5,8 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.github.coutinhonobre.bank.data.model.UserAccount
+import com.github.coutinhonobre.bank.data.model.UserNetWork
 
-@Database(entities = [UserAccount::class], version = 1)
+@Database(entities = [UserAccount::class, UserNetWork::class], version = 2)
 abstract class AppDataBase(): RoomDatabase() {
 
     abstract fun Dao(): AppDao

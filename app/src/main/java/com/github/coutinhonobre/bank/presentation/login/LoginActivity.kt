@@ -79,5 +79,12 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(LoginViewModel::class.java)
 
+        loginViewModel.getUser.observe(this, Observer {
+            if (it.isNotEmpty()){
+                textInputEditUser.setText(it[0].user)
+                textInputEditPassword.setText(it[0].password)
+            }
+        })
+
     }
 }

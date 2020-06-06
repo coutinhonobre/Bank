@@ -6,7 +6,11 @@ import com.github.coutinhonobre.bank.apinetwork.ApiRetrofit
 import com.github.coutinhonobre.bank.apinetwork.login.LoginUserAccount
 import com.github.coutinhonobre.bank.apinetwork.login.Mensagem
 import com.github.coutinhonobre.bank.apinetwork.login.TipoMensagem
+import com.github.coutinhonobre.bank.data.model.UserAccount
 import com.github.coutinhonobre.bank.data.model.UserNetWork
+import com.github.coutinhonobre.bank.database.AppDataBase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +23,10 @@ class AppRepository(val context: Context) {
     var mensagem = MutableLiveData<Mensagem>(Mensagem(tipo = TipoMensagem.NOT, descricao = ""))
 
     var getUserAccount = ApiRetrofit.RETROFIT_SERVICE
+
+    private val database = AppDataBase.getInstance(context)
+
+    fun getUltimoUser() = database.Dao().getAllUser()
 
 
     fun fetchDataFromServerUsuarios(userNetWork: UserNetWork) {
@@ -41,6 +49,11 @@ class AppRepository(val context: Context) {
                     }
                     var userAccount = response.body()!!.userAccount
 
+                    GlobalScope.launch {
+                        adicaoUser(userNetWork)
+                        adicaoUserAccount(userAccount)
+                    }
+
                 }else{
                     mensagem.value.apply {
                         Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
@@ -51,6 +64,16 @@ class AppRepository(val context: Context) {
 
         })
 
+    }
+
+    private fun adicaoUserAccount(userAccount: UserAccount) {
+        database.Dao().deleteUserAccount()
+        database.Dao().addSingleCliente(userAccount)
+    }
+
+    private fun adicaoUser(userNetWork: UserNetWork) {
+        database.Dao().deleteUser()
+        database.Dao().addSingleUser(userNetWork)
     }
 
 }

@@ -16,7 +16,7 @@ interface UserAccountDao {
     @Insert
     fun addSingleCliente(userAccount: UserAccount)
 
-    @Delete
-    fun delete()
+    @Query("DELETE FROM users")
+    fun deleteUserAccount()
 
 }

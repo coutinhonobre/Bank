@@ -12,6 +12,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     var mensagem = appRepository.mensagem
 
+    var getUser = appRepository.getUltimoUser()
+
     fun refreshData(userNetWork: UserNetWork) = appRepository.fetchDataFromServerUsuarios(userNetWork)
 
 

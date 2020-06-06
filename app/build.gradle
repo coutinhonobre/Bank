@@ -73,9 +73,7 @@ dependencies {
 
     // Room
     implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
-
-
+    kapt "androidx.room:room-compiler:$room_version"
 
     // Test
     testImplementation 'junit:junit:4.12'

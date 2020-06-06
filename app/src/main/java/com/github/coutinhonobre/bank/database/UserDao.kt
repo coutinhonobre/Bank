@@ -7,8 +7,11 @@ import com.github.coutinhonobre.bank.data.model.UserNetWork
 @Dao
 interface UserDao {
 
-    @Query("select * from user")
+    @Query("select * from user order by id desc")
     fun getAllUser(): LiveData<List<UserNetWork>>
+
+    @Query("select * from user where user = :user")
+    fun getListAll(user: String): List<UserNetWork>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addSingleUser(userNetWork: UserNetWork)
@@ -16,8 +19,8 @@ interface UserDao {
     @Update
     fun updateUser(userNetWork: UserNetWork)
 
-    @Delete
-    fun delete()
+    @Query("DELETE FROM user")
+    fun deleteUser()
 
 
 }
