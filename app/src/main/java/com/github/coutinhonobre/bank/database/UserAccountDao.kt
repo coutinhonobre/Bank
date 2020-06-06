@@ -11,7 +11,7 @@ import com.github.coutinhonobre.bank.data.model.UserAccount
 interface UserAccountDao {
 
     @Query("select * from users")
-    fun getAllLiveUsers(): LiveData<List<UserAccount>>
+    fun getAllLiveUserAccount(): LiveData<List<UserAccount>>
 
     @Insert
     fun addSingleCliente(userAccount: UserAccount)

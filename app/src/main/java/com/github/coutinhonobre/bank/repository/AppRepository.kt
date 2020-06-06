@@ -28,6 +28,8 @@ class AppRepository(val context: Context) {
 
     fun getUltimoUser() = database.Dao().getAllUser()
 
+    fun getConta() = database.Dao().getAllLiveUserAccount()
+
 
     fun fetchDataFromServerUsuarios(userNetWork: UserNetWork) {
 
