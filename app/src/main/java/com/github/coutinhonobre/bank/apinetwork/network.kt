@@ -38,4 +38,9 @@ interface ApiService{
 }
 
 
+object ApiRetrofit {
+    val RETROFIT_SERVICE : ApiService by lazy { retrofit.create(ApiService::class.java) }
+}
+
+
 
