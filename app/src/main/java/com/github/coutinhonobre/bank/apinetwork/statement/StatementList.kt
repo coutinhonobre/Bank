@@ -5,6 +5,6 @@ import com.github.coutinhonobre.bank.data.model.Statement
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class StatementAccount(
+data class StatementList(
     val statementList : List<Statement>
 ) : Parcelable
