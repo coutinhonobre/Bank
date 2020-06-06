@@ -1,7 +1,7 @@
 package com.github.coutinhonobre.bank.apinetwork
 
 import com.github.coutinhonobre.bank.apinetwork.login.LoginUserAccount
-import com.github.coutinhonobre.bank.apinetwork.login.User
+import com.github.coutinhonobre.bank.data.model.UserNetWork
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
@@ -32,7 +32,7 @@ interface ApiService{
 
     @Headers("Content-Type: application/json")
     @POST("login")
-    fun getUsuarios(@Body user: User):
+    fun getUsuarios(@Body userNetWork: UserNetWork):
             Call<LoginUserAccount>
 
 }

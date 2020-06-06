@@ -1,15 +1,12 @@
 package com.github.coutinhonobre.bank.repository
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
 import com.github.coutinhonobre.bank.apinetwork.ApiRetrofit
 import com.github.coutinhonobre.bank.apinetwork.login.LoginUserAccount
 import com.github.coutinhonobre.bank.apinetwork.login.Mensagem
 import com.github.coutinhonobre.bank.apinetwork.login.TipoMensagem
-import com.github.coutinhonobre.bank.apinetwork.login.User
-import com.github.coutinhonobre.bank.data.model.UserAccount
+import com.github.coutinhonobre.bank.data.model.UserNetWork
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,9 +21,9 @@ class AppRepository(val context: Context) {
     var getUserAccount = ApiRetrofit.RETROFIT_SERVICE
 
 
-    fun fetchDataFromServerUsuarios(user: User) {
+    fun fetchDataFromServerUsuarios(userNetWork: UserNetWork) {
 
-        getUserAccount.getUsuarios(user).enqueue(object : Callback<LoginUserAccount>{
+        getUserAccount.getUsuarios(userNetWork).enqueue(object : Callback<LoginUserAccount>{
             override fun onFailure(call: Call<LoginUserAccount>, t: Throwable) {
                 mensagem.value.apply {
                     Mensagem(TipoMensagem.ERROR, "Requisicao Falou")

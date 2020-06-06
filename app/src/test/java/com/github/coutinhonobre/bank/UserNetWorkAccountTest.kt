@@ -7,7 +7,7 @@ import org.junit.Test
 import org.hamcrest.CoreMatchers.*
 
 
-class UserAccountTest {
+class UserNetWorkAccountTest {
 
     private lateinit var userAccount: UserAccount
 

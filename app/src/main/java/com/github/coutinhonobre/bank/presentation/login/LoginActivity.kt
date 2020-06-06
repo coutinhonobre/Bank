@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.github.coutinhonobre.bank.R
 import com.github.coutinhonobre.bank.apinetwork.login.TipoMensagem
-import com.github.coutinhonobre.bank.apinetwork.login.User
+import com.github.coutinhonobre.bank.data.model.UserNetWork
 import com.github.coutinhonobre.bank.presentation.extrato.ExtratoActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,7 +33,12 @@ class LoginActivity : AppCompatActivity() {
 
             if (user.isValido()){
 
-                loginViewModel.refreshData(User(user.user, user.password))
+                loginViewModel.refreshData(
+                    UserNetWork(
+                        user.user,
+                        user.password
+                    )
+                )
 
                 loginViewModel.mensagem.observe(this, Observer {
                     if (it.tipo != TipoMensagem.NOT) {

@@ -2,7 +2,7 @@ package com.github.coutinhonobre.bank.presentation.login
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.github.coutinhonobre.bank.apinetwork.login.User
+import com.github.coutinhonobre.bank.data.model.UserNetWork
 import com.github.coutinhonobre.bank.repository.AppRepository
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
@@ -12,7 +12,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     var mensagem = appRepository.mensagem
 
-    fun refreshData(user: User) = appRepository.fetchDataFromServerUsuarios(user)
+    fun refreshData(userNetWork: UserNetWork) = appRepository.fetchDataFromServerUsuarios(userNetWork)
 
 
 
