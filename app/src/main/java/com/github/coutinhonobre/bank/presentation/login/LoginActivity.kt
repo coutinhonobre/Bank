@@ -35,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
 
                 loginViewModel.refreshData(
                     UserNetWork(
-                        user.user,
-                        user.password
+                        user = user.user,
+                        password = user.password
                     )
                 )
 
