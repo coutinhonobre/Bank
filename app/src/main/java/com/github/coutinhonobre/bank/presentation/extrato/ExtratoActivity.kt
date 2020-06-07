@@ -29,8 +29,8 @@ class ExtratoActivity : AppCompatActivity() {
         extratoViewModel.userAccount.observe(this, Observer {
             if (it.isNotEmpty()) {
                 textViewCabecalhoExtratoNome.text = it[0].name
-                textViewCabecalhoExtratoContaNumero.text = it[0].bankAccount
-                textViewCabecalhoExtratoSaldo.text = it[0].balance.toString()
+                textViewCabecalhoExtratoContaNumero.text = "${it[0].agency} / ${it[0].bankAccount}"
+                textViewCabecalhoExtratoSaldo.text = "R$ ${String.format("%.2f", it[0].balance)}"
 
                 extratoViewModel.buscarExtrato(it[0].userId.toString())
                 userId = it[0].userId
