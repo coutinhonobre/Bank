@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFEFEFE"
     android:padding="16dp">
 
     <TextView
@@ -21,11 +20,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCabecalhoListaRecentes"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCabecalhoListaRecentes"
         tools:itemCount="10"
-        tools:listitem="@layout/card_recentes"/>
+        tools:listitem="@layout/card_recentes" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
