@@ -39,11 +39,15 @@ class ExtratoActivity : AppCompatActivity() {
         }
 
         extratoViewModel.mensagem.observe(this, Observer {
-            if (it.tipo == TipoMensagem.ERROR) Toast.makeText(this, it.descricao, Toast.LENGTH_LONG).show()
+            if (it.tipo == TipoMensagem.ERROR){
+                viewFlipperCabecalhoListaRecentes.displayedChild = 2
+                textViewCabecalhoListaRecentesError.text = it.descricao
+            }
         })
 
         extratoViewModel.extrato.observe(this, Observer {
             it.let {
+                viewFlipperCabecalhoListaRecentes.displayedChild = 1
                 extratoList = it
                 recyclerView()
             }

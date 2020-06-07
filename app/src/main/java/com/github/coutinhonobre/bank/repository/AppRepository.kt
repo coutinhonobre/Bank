@@ -39,8 +39,8 @@ class AppRepository(val context: Context) {
 
         getUserAccount.getUsuarios(userNetWork).enqueue(object : Callback<LoginUserAccount>{
             override fun onFailure(call: Call<LoginUserAccount>, t: Throwable) {
-                mensagem.value.apply {
-                    Mensagem(TipoMensagem.ERROR, "Requisicao Falhou!")
+                mensagem.apply {
+                    value = Mensagem(TipoMensagem.ERROR, "Requisicao Falhou!")
                 }
             }
 
@@ -61,8 +61,8 @@ class AppRepository(val context: Context) {
                     }
 
                 }else{
-                    mensagem.value.apply {
-                        Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
+                    mensagem.apply {
+                        value = Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
                     }
                 }
 
@@ -75,8 +75,8 @@ class AppRepository(val context: Context) {
     fun getchDataFromServerStatements(id: String){
         getUserAccount.getExtratos(id).enqueue(object : Callback<StatementList>{
             override fun onFailure(call: Call<StatementList>, t: Throwable) {
-                mensagem.value.apply {
-                    Mensagem(TipoMensagem.ERROR, "Requisicao Falhou!")
+                mensagem.apply {
+                    value = Mensagem(TipoMensagem.ERROR, "Requisicao Falhou!")
                 }
             }
 
@@ -94,8 +94,8 @@ class AppRepository(val context: Context) {
 
 
                 }else{
-                    mensagem.value.apply {
-                        Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
+                    mensagem.apply {
+                        value = Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
                     }
                 }
             }
