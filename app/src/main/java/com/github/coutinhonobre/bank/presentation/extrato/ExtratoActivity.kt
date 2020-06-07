@@ -18,6 +18,8 @@ class ExtratoActivity : AppCompatActivity() {
 
     private lateinit var extratoList: MutableList<Statement>
 
+    private var userId: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extrato)
@@ -31,6 +33,7 @@ class ExtratoActivity : AppCompatActivity() {
                 textViewCabecalhoExtratoSaldo.text = it[0].balance.toString()
 
                 extratoViewModel.buscarExtrato(it[0].userId.toString())
+                userId = it[0].userId
             }
         })
 
@@ -49,9 +52,18 @@ class ExtratoActivity : AppCompatActivity() {
             it.let {
                 viewFlipperCabecalhoListaRecentes.displayedChild = 1
                 extratoList = it
+                swipeRefreshCabecalhoListaRecentes.isRefreshing = false
                 recyclerView()
             }
         })
+
+        swipeRefreshCabecalhoListaRecentes.setOnRefreshListener {
+            if (userId > 0 ){
+                extratoViewModel.buscarExtrato(userId.toString())
+            }else{
+                swipeRefreshCabecalhoListaRecentes.isRefreshing = false
+            }
+        }
 
     }
 
