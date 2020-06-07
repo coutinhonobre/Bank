@@ -24,7 +24,7 @@
         android:id="@+id/textInputLayoutUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="110dp"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFA8B4C4"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:hint="@string/user" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFA8B4C4"
-            android:textSize="15sp"
+            android:textSize="20sp"
+            android:inputType="textPassword"
             android:hint="@string/password" />
     </com.google.android.material.textfield.TextInputLayout>
 

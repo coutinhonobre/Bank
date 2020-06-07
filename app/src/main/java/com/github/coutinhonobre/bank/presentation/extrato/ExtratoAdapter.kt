@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.coutinhonobre.bank.R
 import com.github.coutinhonobre.bank.data.model.Statement
 import kotlinx.android.synthetic.main.card_recentes.view.*
+import java.text.DateFormat
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ExtratoAdapter(var extratoList: MutableList<Statement>): RecyclerView.Adapter<ExtratoAdapter.ExtratoViewHolder>() {
     class ExtratoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -15,11 +19,21 @@ class ExtratoAdapter(var extratoList: MutableList<Statement>): RecyclerView.Adap
             statement.let {
                 itemView.apply {
                     textViewRecentesTitle.text = it.title
-                    textViewRecentesDate.text = it.date
+                    textViewRecentesDate.text = converDataFormat(it)
                     textViewRecentesDesc.text = it.desc
                     textViewRecentesValue.text = "R$ ${String.format("%.2f", it.value)}"
                 }
             }
+        }
+
+        private fun converDataFormat(it: Statement): String {
+            val fmt: DateFormat = SimpleDateFormat("yyyy-MM-dd")
+            return try {
+                SimpleDateFormat("dd/MM/yyyy").format(fmt.parse(it.date))
+            } catch (e: ParseException) {
+                ""
+            }
+
         }
     }
 

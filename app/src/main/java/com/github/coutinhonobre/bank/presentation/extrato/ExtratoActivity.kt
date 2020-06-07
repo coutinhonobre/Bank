@@ -45,6 +45,7 @@ class ExtratoActivity : AppCompatActivity() {
             if (it.tipo == TipoMensagem.ERROR){
                 viewFlipperCabecalhoListaRecentes.displayedChild = 2
                 textViewCabecalhoListaRecentesError.text = it.descricao
+                swipeRefreshCabecalhoListaRecentes.isRefreshing = false
             }
         })
 
@@ -73,8 +74,4 @@ class ExtratoActivity : AppCompatActivity() {
         recyclerViewCabecalhoListaRecentes.adapter = ExtratoAdapter(extratoList)
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
 }
