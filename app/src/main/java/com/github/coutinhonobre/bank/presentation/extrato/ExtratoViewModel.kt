@@ -10,4 +10,10 @@ class ExtratoViewModel(application: Application): AndroidViewModel(application) 
 
     var userAccount = appRepository.getConta()
 
+    var extrato = appRepository.statementListLiveData
+
+    var mensagem = appRepository.mensagem
+
+    fun buscarExtrato(id : String) = appRepository.getchDataFromServerStatements(id)
+
 }

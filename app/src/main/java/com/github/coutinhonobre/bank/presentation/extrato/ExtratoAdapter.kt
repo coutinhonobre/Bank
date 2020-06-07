@@ -17,7 +17,7 @@ class ExtratoAdapter(var extratoList: MutableList<Statement>): RecyclerView.Adap
                     textViewRecentesTitle.text = it.title
                     textViewRecentesDate.text = it.date
                     textViewRecentesDesc.text = it.desc
-                    textViewRecentesValue.text = it.value.toString()
+                    textViewRecentesValue.text = "R$ ${String.format("%.2f", it.value)}"
                 }
             }
         }

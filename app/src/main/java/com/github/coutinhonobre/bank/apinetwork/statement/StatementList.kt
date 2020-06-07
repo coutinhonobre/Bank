@@ -6,5 +6,5 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class StatementList(
-    val statementList : List<Statement>
+    val statementList : MutableList<Statement>
 ) : Parcelable

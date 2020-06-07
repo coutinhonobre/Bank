@@ -6,6 +6,8 @@ import com.github.coutinhonobre.bank.apinetwork.ApiRetrofit
 import com.github.coutinhonobre.bank.apinetwork.login.LoginUserAccount
 import com.github.coutinhonobre.bank.apinetwork.login.Mensagem
 import com.github.coutinhonobre.bank.apinetwork.login.TipoMensagem
+import com.github.coutinhonobre.bank.apinetwork.statement.StatementList
+import com.github.coutinhonobre.bank.data.model.Statement
 import com.github.coutinhonobre.bank.data.model.UserAccount
 import com.github.coutinhonobre.bank.data.model.UserNetWork
 import com.github.coutinhonobre.bank.database.AppDataBase
@@ -24,6 +26,8 @@ class AppRepository(val context: Context) {
 
     var getUserAccount = ApiRetrofit.RETROFIT_SERVICE
 
+    var statementListLiveData = MutableLiveData<MutableList<Statement>>()
+
     private val database = AppDataBase.getInstance(context)
 
     fun getUltimoUser() = database.Dao().getAllUser()
@@ -36,7 +40,7 @@ class AppRepository(val context: Context) {
         getUserAccount.getUsuarios(userNetWork).enqueue(object : Callback<LoginUserAccount>{
             override fun onFailure(call: Call<LoginUserAccount>, t: Throwable) {
                 mensagem.value.apply {
-                    Mensagem(TipoMensagem.ERROR, "Requisicao Falou")
+                    Mensagem(TipoMensagem.ERROR, "Requisicao Falhou!")
                 }
             }
 
@@ -66,6 +70,37 @@ class AppRepository(val context: Context) {
 
         })
 
+    }
+
+    fun getchDataFromServerStatements(id: String){
+        getUserAccount.getExtratos(id).enqueue(object : Callback<StatementList>{
+            override fun onFailure(call: Call<StatementList>, t: Throwable) {
+                mensagem.value.apply {
+                    Mensagem(TipoMensagem.ERROR, "Requisicao Falhou!")
+                }
+            }
+
+            override fun onResponse(call: Call<StatementList>, response: Response<StatementList>) {
+                if (response.isSuccessful){
+                    mensagem.apply {
+                        value = Mensagem(TipoMensagem.SUCCESS, "${response.code()} - ${response.body()}")
+                    }
+
+                    var statementList = response.body()!!.statementList
+
+                    statementListLiveData.apply {
+                        value = statementList
+                    }
+
+
+                }else{
+                    mensagem.value.apply {
+                        Mensagem(TipoMensagem.ERROR, "${response.code()} - ${response.errorBody()}")
+                    }
+                }
+            }
+
+        })
     }
 
     private fun adicaoUserAccount(userAccount: UserAccount) {
