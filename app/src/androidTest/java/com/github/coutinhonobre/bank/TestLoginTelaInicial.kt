@@ -112,7 +112,23 @@ class TestLoginTelaInicial {
         onView(withId(R.id.progressBar)).check(matches(isDisplayed()))
         Thread.sleep(5000)
         onView(withId(R.id.recyclerViewCabecalhoListaRecentes)).check(matches(isDisplayed()))
+        onView(withId(R.id.imageViewCabecalhoExtratoLogout)).perform(click())
+    }
 
+    @Test
+    fun usuarioSenhaCorretosChecarDadosCorrentistaTest(){
+        onView(withId(R.id.textInputEditUser)).perform(clearText(), typeText("test@test.com"))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.textInputEditPassword)).perform(clearText(), typeText("1234&567A8"))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.button)).perform(click())
+        onView(withId(R.id.progressBar)).check(matches(isDisplayed()))
+        Thread.sleep(5000)
+        onView(withId(R.id.recyclerViewCabecalhoListaRecentes)).check(matches(isDisplayed()))
+        onView(withId(R.id.textViewCabecalhoExtratoNome)).check(matches(isDisplayed()))
+        onView(withId(R.id.textViewCabecalhoExtratoContaNumero)).check(matches(isDisplayed()))
+        onView(withId(R.id.textViewCabecalhoExtratoSaldo)).check(matches(isDisplayed()))
+        onView(withId(R.id.imageViewCabecalhoExtratoLogout)).perform(click())
     }
 
 
