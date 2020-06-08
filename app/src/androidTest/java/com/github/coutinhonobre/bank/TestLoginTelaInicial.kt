@@ -1,7 +1,9 @@
 package com.github.coutinhonobre.bank
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -28,5 +30,13 @@ class TestLoginTelaInicial {
         onView(withId(R.id.textInputEditUser)).check(matches(withHint("User")))
         onView(withId(R.id.textInputEditPassword)).check(matches(withHint("Password")))
     }
+
+    @Test
+    fun checarUserESenhaVazioTest(){
+        onView(withId(R.id.button)).perform(click())
+        onView(withText("User ou Senha vazios!")).check(matches(isDisplayed()))
+    }
+
+
 
 }

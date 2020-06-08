@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun mensagemSnack(user: com.github.coutinhonobre.bank.data.model.User, error: Boolean) {
         val contextView: View = findViewById(R.id.constraintLayoutLogin)
-        var snackbar = Snackbar.make(contextView, user.error, Snackbar.LENGTH_SHORT)
+        var snackbar = Snackbar.make(contextView, user.error, Snackbar.LENGTH_LONG)
         snackbar.setActionTextColor(if (error) Color.RED else Color.BLUE)
         snackbar.show()
         voltarEstadoBotaoLogin()
