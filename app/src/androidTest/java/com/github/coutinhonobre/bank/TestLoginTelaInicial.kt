@@ -58,6 +58,27 @@ class TestLoginTelaInicial {
         onView(withText("Usuario Invalido")).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun usuarioSenhaIncorretoTest(){
+        onView(withId(R.id.textInputEditUser)).perform(typeText("test@test.com"))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.textInputEditPassword)).perform(typeText("12345678"))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.button)).perform(click())
+        onView(withText("Senha Invalida")).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun usuarioSenhaComCPFIncorretoTest(){
+        onView(withId(R.id.textInputEditUser)).perform(typeText("03496196107"))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.textInputEditPassword)).perform(typeText("12345678"))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.button)).perform(click())
+        onView(withText("Senha Invalida")).check(matches(isDisplayed()))
+    }
+
+
 
 
 
